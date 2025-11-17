@@ -30,8 +30,24 @@ class BrowserBenchmarkRunner {
 
 	setupEventListeners() {
 		document.getElementById('runAllBtn').addEventListener('click', () => this.runBenchmarks());
-		document.getElementById('clearBtn').addEventListener('click', () => this.clearResults());
+		document.getElementById('clearBtn').addEventListener('click', () => {
+			// Track clear button click
+			if (typeof gtag === 'function') {
+				gtag('event', 'button_click', {
+					button_type: 'benchmark_action',
+					button_id: 'clear_results'
+				});
+			}
+			this.clearResults();
+		});
 		document.getElementById('categorySelect').addEventListener('change', (e) => {
+			// Track category selection
+			if (typeof gtag === 'function') {
+				gtag('event', 'button_click', {
+					button_type: 'benchmark_category',
+					button_id: e.target.value
+				});
+			}
 			if (e.target.value !== 'all') {
 				this.runCategory(e.target.value);
 			}
@@ -46,6 +62,14 @@ class BrowserBenchmarkRunner {
 		const category = document.getElementById('categorySelect').value;
 		const runBtn = document.getElementById('runAllBtn');
 		const statusEl = document.getElementById('status');
+
+		// Track benchmark run
+		if (typeof gtag === 'function') {
+			gtag('event', 'button_click', {
+				button_type: 'benchmark_run',
+				button_id: category
+			});
+		}
 
 		runBtn.disabled = true;
 		runBtn.textContent = '⏳ Running benchmarks...';
