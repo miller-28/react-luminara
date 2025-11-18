@@ -8,7 +8,7 @@ import { TestSuite, MockServer, assert, assertEqual, assertThrows, assertEventua
 import { runTestSuiteIfDirect } from '../runTestSuite.js';
 
 const suite = new TestSuite('Edge Cases');
-const mockServer = new MockServer(4224);
+const mockServer = new MockServer(4225);
 const BASE_URL = `http://localhost:${mockServer.port}`;
 
 // Export suite and mockServer for testRunner

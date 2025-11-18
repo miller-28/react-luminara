@@ -3,7 +3,7 @@ import { TestSuite, MockServer, assert, assertEqual } from '../testUtils.js';
 import { runTestSuiteIfDirect } from '../runTestSuite.js';
 
 const suite = new TestSuite('parseResponse Option');
-const mockServer = new MockServer(4225);
+const mockServer = new MockServer(4229);
 
 // Test custom JSON parsing with prefix removal
 suite.test('parseResponse can remove JSON prefix', async () => {

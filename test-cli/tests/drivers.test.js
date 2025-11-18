@@ -3,7 +3,7 @@ import { TestSuite, MockServer, assert, assertEqual } from '../testUtils.js';
 import { runTestSuiteIfDirect } from '../runTestSuite.js';
 
 const suite = new TestSuite('Custom Drivers');
-const mockServer = new MockServer(4222);
+const mockServer = new MockServer(4224);
 const BASE_URL = `http://localhost:${mockServer.port}`;
 
 // Create a custom mock driver for testing

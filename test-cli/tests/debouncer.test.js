@@ -11,7 +11,7 @@ import { NativeFetchDriver } from '../../dist/index.mjs';
 import { TestSuite, MockServer, Timer, assert } from '../testUtils.js';
 import { runTestSuiteIfDirect } from '../runTestSuite.js';
 
-const PORT = 4230;
+const PORT = 4222;
 const BASE_URL = `http://localhost:${PORT}`;
 
 // Test suite

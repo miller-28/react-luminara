@@ -10,7 +10,7 @@ import { TestSuite, MockServer, assert, assertRange, Timer } from '../testUtils.
 import { runTestSuiteIfDirect } from '../runTestSuite.js';
 
 const suite = new TestSuite('Rate Limiting');
-const mockServer = new MockServer(4207);
+const mockServer = new MockServer(4231);
 const BASE_URL = `http://localhost:${mockServer.port}`;
 
 // Test 1: API availability and basic structure

@@ -19,6 +19,7 @@ import { suite as rateLimitSuite, mockServer as rateLimitServer } from './tests/
 import { suite as edgeCasesSuite, mockServer as edgeCasesServer } from './tests/edgeCases.test.js';
 import { suite as deduplicatorSuite, mockServer as deduplicatorServer } from './tests/deduplicator.test.js';
 import { suite as hedgingSuite, mockServer as hedgingServer } from './tests/hedging.test.js';
+import { suite as pluginSuite, mockServer as pluginsServer  } from './tests/plugins.test.js';
 
 // Test suite registry
 const TEST_SUITES = [
@@ -37,7 +38,8 @@ const TEST_SUITES = [
 	{ name: 'Stats', suite: statsSuite, server: statsServer },
 	{ name: 'Edge Cases', suite: edgeCasesSuite, server: edgeCasesServer },
 	{ name: 'Request Deduplicator', suite: deduplicatorSuite, server: deduplicatorServer },
-	{ name: 'Request Hedging', suite: hedgingSuite, server: hedgingServer }
+	{ name: 'Request Hedging', suite: hedgingSuite, server: hedgingServer },
+	{ name: 'Plugins', suite: pluginSuite, server: pluginsServer }
 ];
 
 // Standalone tests (no mock server needed)

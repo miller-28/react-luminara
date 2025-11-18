@@ -14,6 +14,7 @@ import { verboseLogging } from './examples/verboseLogging.js';
 import { stats } from './examples/stats.js';
 import { rateLimiting } from './examples/rateLimiting.js';
 import { deduplicator } from './examples/deduplicator.js';
+import { cookieJarPlugin } from './examples/cookieJarPlugin.js';
 
 // Aggregate all examples
 export const examples = {
@@ -31,7 +32,8 @@ export const examples = {
 	verboseLogging,
 	stats,
 	rateLimiting,
-	deduplicator
+	deduplicator,
+	cookieJarPlugin
 };
 
 // Examples Controller Class

@@ -3,7 +3,7 @@ import { TestSuite, MockServer, assert, assertEqual } from '../testUtils.js';
 import { runTestSuiteIfDirect } from '../runTestSuite.js';
 
 const suite = new TestSuite('Response Types');
-const mockServer = new MockServer(4227);
+const mockServer = new MockServer(4233);
 
 // Test responseType: 'text'
 suite.test('responseType: text should return string', async () => {

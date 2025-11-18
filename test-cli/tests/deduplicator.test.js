@@ -8,7 +8,7 @@ import { TestSuite, MockServer, assert, Timer, assertRange } from '../testUtils.
 import { runTestSuiteIfDirect } from '../runTestSuite.js';
 
 const suite = new TestSuite('Request Deduplicator');
-const mockServer = new MockServer(4231);
+const mockServer = new MockServer(4223);
 const BASE_URL = `http://localhost:${mockServer.port}`;
 
 suite.test('Deduplication disabled by default', async () => {

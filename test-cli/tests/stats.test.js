@@ -3,7 +3,7 @@ import { TestSuite, MockServer, assert, assertEqual, sleep } from '../testUtils.
 import { runTestSuiteIfDirect } from '../runTestSuite.js';
 
 const suite = new TestSuite('Stats Feature');
-const mockServer = new MockServer(4210);  // Using port 4210 for stats tests
+const mockServer = new MockServer(4235);  // Using port 4210 for stats tests
 const BASE_URL = `http://localhost:${mockServer.port}`;
 
 // Test comprehensive stats functionality

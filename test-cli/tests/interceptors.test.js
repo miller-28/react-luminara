@@ -3,7 +3,7 @@ import { createLuminara } from '../../dist/index.mjs';
 import { runTestSuiteIfDirect } from '../runTestSuite.js';
 
 const suite = new TestSuite('Modern Interceptors');
-const mockServer = new MockServer(4203);
+const mockServer = new MockServer(4228);
 const BASE_URL = `http://localhost:${mockServer.port}`;
 
 // =============================================================================

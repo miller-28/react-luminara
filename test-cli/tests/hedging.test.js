@@ -3,7 +3,7 @@ import { TestSuite, MockServer, assert, assertEqual, assertRange, Timer } from '
 import { runTestSuiteIfDirect } from '../runTestSuite.js';
 
 const suite = new TestSuite('Request Hedging');
-const mockServer = new MockServer(4232);
+const mockServer = new MockServer(4227);
 const BASE_URL = `http://localhost:${mockServer.port}`;
 
 // ============================================================================

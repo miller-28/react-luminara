@@ -3,7 +3,7 @@ import { TestSuite, MockServer, assert, assertEqual, assertRange, Timer } from '
 import { runTestSuiteIfDirect } from '../runTestSuite.js';
 
 const suite = new TestSuite('React Application Simulation');
-const mockServer = new MockServer(4226);
+const mockServer = new MockServer(4232);
 const BASE_URL = `http://localhost:${mockServer.port}`;
 
 // Simulate React component patterns and usage scenarios

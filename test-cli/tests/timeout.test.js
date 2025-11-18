@@ -3,7 +3,7 @@ import { TestSuite, MockServer, assert, assertRange, Timer } from '../testUtils.
 import { runTestSuiteIfDirect } from '../runTestSuite.js';
 
 const suite = new TestSuite('Timeout Handling');
-const mockServer = new MockServer(4229);
+const mockServer = new MockServer(4236);
 const BASE_URL = `http://localhost:${mockServer.port}`;
 
 // Test basic timeout functionality

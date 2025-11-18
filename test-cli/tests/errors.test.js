@@ -9,7 +9,7 @@ import { TestSuite, MockServer, assert, assertEqual, Timer } from '../testUtils.
 import { runTestSuiteIfDirect } from '../runTestSuite.js';
 
 const suite = new TestSuite('Error Handling');
-const mockServer = new MockServer(4223);
+const mockServer = new MockServer(4226);
 
 // === HTTP Error Tests ===
 

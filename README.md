@@ -1,15 +1,15 @@
 # 🌌 Luminara
 
+[![Website](https://img.shields.io/badge/Website-luminara.website-blue?style=flat-square&logo=safari)](https://luminara.website)
+[![GitHub](https://img.shields.io/badge/GitHub-miller--28%2Fluminara-black?style=flat-square&logo=github)](https://github.com/miller-28/luminara)
+[![npm](https://img.shields.io/npm/v/luminara?style=flat-square&logo=npm)](https://www.npmjs.com/package/luminara)
+[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](./LICENSE)
+
 **Luminara** is a modern, universal HTTP client built on native fetch, engineered for developers and teams who demand reliability, scalability, and architectural clarity.
 It provides full lifecycle control over HTTP requests — from orchestration and interception to retries, deduplication, and analytics — all with zero external dependencies.
 
 Lightweight by design yet powerful in scope, Luminara enables consistent, predictable network behavior across all environments — browsers (React, Vue, Angular, Svelte, vanilla JS) and Node.js 18+.
 Its domain-driven architecture and type-safe foundation make it ideal for enterprise-grade applications that need transparent debugging, real-time visibility, and extendable control over every request.
-
-[![Website](https://img.shields.io/badge/Website-luminara.website-blue?style=flat-square&logo=safari)](https://luminara.website)
-[![GitHub](https://img.shields.io/badge/GitHub-miller--28%2Fluminara-black?style=flat-square&logo=github)](https://github.com/miller-28/luminara)
-[![npm](https://img.shields.io/npm/v/luminara?style=flat-square&logo=npm)](https://www.npmjs.com/package/luminara)
-[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](./LICENSE)
 
 ## 🔗 Links
 
@@ -33,6 +33,7 @@ Its domain-driven architecture and type-safe foundation make it ideal for enterp
 
 ### Request Lifecycle (Orchestration Layer)
 - 🔌 **Enhanced interceptor architecture** - Deterministic order, mutable context, retry-aware
+- 🍪 **Plugin system** - Extensible architecture with official plugins (cookie-jar)
 - 📊 **Comprehensive stats system** - Real-time metrics, analytics, and query interface
 - 📝 **Verbose logging system** - Detailed debugging and request tracing
 
@@ -59,7 +60,7 @@ Its domain-driven architecture and type-safe foundation make it ideal for enterp
 
 Luminara is validated by a **comprehensive test suite** covering all features and edge cases:
 
-- ✅ **234 tests** across **16 test suites** (100% passing)
+- ✅ **241 tests** across **17 test suites** (100% passing)
 - 🎯 **Programmatic validation** - Tests actual behavior, not just API contracts
 - 🧪 **Framework simulation** - React, Vue, Angular usage patterns
 - ⏱️ **Timing accuracy** - Backoff strategies validated to millisecond precision
@@ -73,6 +74,7 @@ Luminara is validated by a **comprehensive test suite** covering all features an
 - Rate Limiting (7) • Debouncing (16) • Deduplication (17)
 - Error Handling (21) • Timeouts (11) • Response Types (7)
 - Custom Drivers (10) • Edge Cases (15) • Framework Patterns (8)
+- Plugins (7)
 
 📋 **[View Test Documentation](./test-cli/README.md)** • **[Run Tests Locally](./test-cli/)**
 
@@ -784,6 +786,58 @@ try {
 
 ---
 
+## 🍪 Plugins
+
+Luminara supports an extensible plugin system to add custom functionality. Plugins can extend the client with new features while maintaining full compatibility with all Luminara features.
+
+### Cookie Jar Plugin
+
+**Package**: [`luminara-cookie-jar`](https://www.npmjs.com/package/luminara-cookie-jar)
+
+Automatic `Cookie` / `Set-Cookie` header management for server-side environments using [tough-cookie](https://github.com/salesforce/tough-cookie).
+
+Perfect for Node.js, SSR applications, CLI tools, and test harnesses where cookies aren't automatically managed by the browser.
+
+**Installation:**
+```bash
+npm install luminara-cookie-jar
+```
+
+**Quick Start:**
+```js
+import { createLuminara } from 'luminara';
+import { cookieJarPlugin } from 'luminara-cookie-jar';
+
+const client = createLuminara({
+  baseURL: 'https://api.example.com',
+  plugins: [cookieJarPlugin()]
+});
+
+// Login request sets cookies automatically
+await client.post('/login', { username: 'user', password: 'pass' });
+
+// Subsequent requests include cookies automatically
+await client.get('/profile');  // Cookies sent automatically!
+
+// Access cookie jar directly
+const cookies = await client.jar.getCookies('https://api.example.com');
+console.log('Cookies:', cookies);
+```
+
+**Features:**
+- 🔄 Automatic cookie management (stores `Set-Cookie`, sends `Cookie`)
+- 🌐 Universal compatibility (Node.js, SSR, CLI tools)
+- 🤝 Shared cookie jars across multiple clients
+- 📝 Full TypeScript support
+- 🎯 RFC 6265 compliant
+
+**Documentation:**
+- 📦 [npm Package](https://www.npmjs.com/package/luminara-cookie-jar)
+- 📖 [Full Documentation](https://github.com/miller-28/luminara-cookie-jar#readme)
+- 🔌 [Plugin Development Guide](./docs/plugins/README.md)
+
+---
+
 ## 🔌 Enhanced Interceptor System
 
 Luminara's interceptor architecture provides **deterministic execution order** and **guaranteed flow control** with a mutable context object that travels through the entire request lifecycle.
@@ -1212,7 +1266,7 @@ Luminara includes a **beautiful interactive sandbox** where you can explore all 
 🌐 **[Try the Sandbox](./sandbox/)** • [Sandbox Documentation](./sandbox/README.md) • [Architecture Guide](./sandbox/ARCHITECTURE.md)
 
 The sandbox features:
-- **75+ Interactive Examples** across 14 feature categories
+- **89 Interactive Examples** across 16 feature categories
 - **Live Retry Logging** - Watch backoff strategies in action
 - **Individual Test Controls** - Run and stop tests independently
 - **Real-time Feedback** - Color-coded outputs with detailed logs
@@ -1225,15 +1279,17 @@ The sandbox features:
 3. ⏱️ **Timeout** - Success and failure scenarios
 4. 🔄 **Retry** - Basic retry with status codes
 5. 📈 **Backoff Strategies** - All 6 strategies with live visualization
-6. 🔌 **Interceptors** - Request/response/error interceptors
-7. 🛡️ **Error Handling** - Comprehensive error scenarios
-8. 🎯 **Response Types** - JSON, text, form, binary data handling
-9. 📊 **Stats System** - Real-time metrics and analytics
-10. 📝 **Verbose Logging** - Detailed debugging and tracing
-11. 🚗 **Custom Drivers** - Replace the HTTP backend
-12. 🚦 **Rate Limiting** - Token bucket algorithm examples
-13. ⏱️ **Debouncer** - Search debouncing, button spam protection, method filtering
-14. � **Request Deduplicator** - Automatic duplicate prevention, key strategies, TTL
+6. 🏎️ **Request Hedging** - Race policy, cancel-and-retry, server rotation
+7. 🔌 **Interceptors** - Request/response/error interceptors
+8. 🛡️ **Error Handling** - Comprehensive error scenarios
+9. 🎯 **Response Types** - JSON, text, form, binary data handling
+10. 📊 **Stats System** - Real-time metrics and analytics
+11. 📝 **Verbose Logging** - Detailed debugging and tracing
+12. 🚗 **Custom Drivers** - Replace the HTTP backend
+13. 🚦 **Rate Limiting** - Token bucket algorithm examples
+14. ⏱️ **Debouncer** - Search debouncing, button spam protection, method filtering
+15. 🔁 **Request Deduplicator** - Automatic duplicate prevention, key strategies, TTL
+16. 🍪 **Cookie Jar Plugin** - Server-side cookie management
 
 **Quick Start:**
 ```bash
