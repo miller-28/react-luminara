@@ -4,8 +4,9 @@ import { NativeFetchDriver } from './drivers/native/index.js';
 // Simple factory that creates a default client (uses NativeFetchDriver)
 export function createLuminara(config = {}) {
 	const driver = NativeFetchDriver(config);
-
-	return new LuminaraClient(driver, [], config);  // Pass config to client too
+	const plugins = config.plugins || [];
+	
+	return new LuminaraClient(driver, plugins, config);  // Pass config to client too
 }
 
 // Re-export client, driver, and utilities for users that need custom setups

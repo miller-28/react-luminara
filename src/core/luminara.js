@@ -32,6 +32,13 @@ export class LuminaraClient {
 		this.httpVerbs = new HttpVerbs(this);
 		this.typedRequests = new TypedRequests(this);
 		
+		// Allow plugins to attach to client instance (e.g., client.jar)
+		for (const plugin of plugins) {
+			if (typeof plugin.onAttach === 'function') {
+				plugin.onAttach(this);
+			}
+		}
+		
 		// Log client configuration
 		this.configManager.logConfiguration(driver, plugins.length);
 	}	/**
@@ -70,6 +77,11 @@ export class LuminaraClient {
 	use(plugin) {
 		this.pluginPipeline.add(plugin);
 		
+		// Allow plugin to attach to client instance (e.g., client.cookie)
+		if (typeof plugin.onAttach === 'function') {
+			plugin.onAttach(this);
+		}
+		
 		// Log plugin registration if verbose is enabled globally
 		const config = this.configManager.get();
 		if (config.verbose) {
@@ -78,7 +90,8 @@ export class LuminaraClient {
 				totalPlugins: this.pluginPipeline.getAll().length,
 				hasOnRequest: !!plugin.onRequest,
 				hasOnResponse: !!plugin.onResponse,
-				hasOnResponseError: !!plugin.onResponseError
+				hasOnResponseError: !!plugin.onResponseError,
+				hasOnAttach: !!plugin.onAttach
 			});
 		}
 		
