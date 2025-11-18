@@ -1,6 +1,6 @@
 {
   "name": "luminara",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Zero-dependency, high-efficiency HTTP client built on native fetch with a microsecond-scale core. Features a deterministic plugin pipeline, advanced retry/backoff, hedging, rate limiting, deduplication, and a real-time stats engine — all built-in, with no external plugins required. Lightweight, universal, and designed for browsers and Node.js 18+.",
   "author": {
 		"name": "Jonathan Miller",
