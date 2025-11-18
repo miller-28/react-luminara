@@ -40,7 +40,7 @@ npx serve .
 
 ## 📦 Example Categories
 
-**89 interactive examples across 16 feature categories**
+**86 interactive examples across 16 feature categories**
 
 ### 📦 **Basic Usage**
 Core HTTP operations with Luminara's helper methods:

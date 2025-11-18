@@ -1266,7 +1266,7 @@ Luminara includes a **beautiful interactive sandbox** where you can explore all 
 🌐 **[Try the Sandbox](./sandbox/)** • [Sandbox Documentation](./sandbox/README.md) • [Architecture Guide](./sandbox/ARCHITECTURE.md)
 
 The sandbox features:
-- **89 Interactive Examples** across 16 feature categories
+- **86 Interactive Examples** across 16 feature categories
 - **Live Retry Logging** - Watch backoff strategies in action
 - **Individual Test Controls** - Run and stop tests independently
 - **Real-time Feedback** - Color-coded outputs with detailed logs
