@@ -2,6 +2,7 @@ import { createLuminara } from '../../dist/index.mjs';
 
 export const cookieJarPlugin = {
 	title: '🍪 Cookie Jar Plugin',
+	docUrl: 'https://github.com/miller-28/luminara/blob/master/docs/plugins/cookie-jar.md',
 	examples: [
 		{
 			id: 'cookie-jar-basic',

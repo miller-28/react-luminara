@@ -40,7 +40,7 @@ npx serve .
 
 ## 📦 Example Categories
 
-**75+ interactive examples across 14 feature categories**
+**89 interactive examples across 16 feature categories**
 
 ### 📦 **Basic Usage**
 Core HTTP operations with Luminara's helper methods:
@@ -167,6 +167,13 @@ Automatic in-flight duplicate prevention (10 examples):
 - **Error Propagation** - Failed requests share errors with duplicates
 - **Integration with Retry** - Deduplication + retry work together
 
+### 🍪 **Cookie Jar Plugin**
+Server-side cookie management with automatic Cookie/Set-Cookie header handling (4 examples):
+- **Basic Cookie Management** - Automatic cookie storage and transmission
+- **Manual Cookie Operations** - Direct access to cookie jar for CRUD operations
+- **Shared Cookie Jar** - Share cookies across multiple client instances
+- **SSR Usage Pattern** - Server-side rendering cookie persistence
+
 ## 🏗️ Architecture
 
 ### **Separation of Concerns**
@@ -192,7 +199,9 @@ sandbox/
     ├── verboseLogging.js    # 📝 Debugging and tracing
     ├── customDriver.js      # 🚗 Driver extensibility
     ├── debouncer.js         # ⏱️ Request debouncing
-    └── deduplicator.js      # 🔄 Duplicate prevention
+    ├── deduplicator.js      # 🔄 Duplicate prevention
+    ├── requestHedging.js    # 🏎️ Request hedging
+    └── cookieJarPlugin.js   # 🍪 Cookie jar plugin
 ```
 
 ### **Layer Responsibilities**
@@ -298,13 +307,17 @@ The sandbox demonstrates the universal API that works consistently across all th
 3. **⏱️ Timeout** - Understand timeout handling
 4. **🔄 Retry** - Explore retry mechanisms
 5. **📈 Backoff Strategies** - Master advanced retry patterns
-6. **� Rate Limiting** - Control request flow with token bucket algorithm
-7. **�📦 Response Types** - Learn response handling options
-8. **🔌 Interceptors** - Implement request/response middleware
-9. **🛠️ Error Handling** - Master comprehensive error scenarios
-10. **📊 Stats System** - Explore real-time metrics and analytics
-10. **📝 Verbose Logging** - Learn debugging and tracing techniques
-11. **�🚗 Custom Driver** - Explore extensibility options
+6. **🚦 Rate Limiting** - Control request flow with token bucket algorithm
+7. **🏎️ Request Hedging** - Optimize latency with concurrent requests
+8. **📦 Response Types** - Learn response handling options
+9. **🔌 Interceptors** - Implement request/response middleware
+10. **🛠️ Error Handling** - Master comprehensive error scenarios
+11. **📊 Stats System** - Explore real-time metrics and analytics
+12. **📝 Verbose Logging** - Learn debugging and tracing techniques
+13. **🚗 Custom Driver** - Explore extensibility options
+14. **⏱️ Debouncer** - Prevent redundant rapid-fire requests
+15. **🔄 Request Deduplicator** - Eliminate concurrent duplicate requests
+16. **🍪 Cookie Jar Plugin** - Server-side cookie management
 
 Each category builds upon previous concepts, providing a comprehensive understanding of Luminara's capabilities.
 

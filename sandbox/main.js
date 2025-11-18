@@ -302,7 +302,8 @@ class SandboxUI {
 					feature_title: feature.title
 				});
 			}
-			const docUrl = `https://github.com/miller-28/luminara/tree/master/docs/features/${docFilename}.md`;
+			// Use custom docUrl if provided, otherwise use default pattern
+			const docUrl = feature.docUrl || `https://github.com/miller-28/luminara/tree/master/docs/features/${docFilename}.md`;
 			window.open(docUrl, '_blank', 'noopener,noreferrer');
 		};
 		headerButtonContainer.appendChild(docsBtn);
