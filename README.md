@@ -1,6 +1,6 @@
 # 🌌 Luminara
 
-[![Website](https://img.shields.io/badge/Website-luminara.website-blue?style=flat-square&logo=safari)](https://luminara.website)
+[![Website](https://img.shields.io/badge/Website-luminara.website-blue?style=flat-square&logo=web)](https://luminara.website)
 [![GitHub](https://img.shields.io/badge/GitHub-miller--28%2Fluminara-black?style=flat-square&logo=github)](https://github.com/miller-28/luminara)
 [![npm](https://img.shields.io/npm/v/luminara?style=flat-square&logo=npm)](https://www.npmjs.com/package/luminara)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](./LICENSE)
